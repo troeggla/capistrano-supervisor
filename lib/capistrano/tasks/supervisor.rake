@@ -8,7 +8,7 @@ namespace :supervisord do
   desc 'Restarts supervisord'
   task :restart do
     on roles fetch(:supervisord_restart_roles) do
-      execute "supervisorctl restart"
+      execute "supervisorctl restart #{fetch(:supervisord_process_name)}"
     end
   end
 end
